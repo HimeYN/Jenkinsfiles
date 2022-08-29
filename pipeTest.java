@@ -17,7 +17,7 @@ pipeline {
             }
 
         //Archive artifact
-        stage {"Post-Build"} {
+        stage{'Post-Build'} {
             steps {
                 script{
                     archiveArtifacts artifacts: '**/*.war', followSymlinks: false
