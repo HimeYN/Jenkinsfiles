@@ -15,6 +15,16 @@ pipeline {
                 echo 'Testing nothing..'
                 }
             }
+
+        //Archive artifact
+        stage {"Post-Build"} {
+            steps {
+                script{
+                    archiveArtifacts artifacts: '**/*.war', followSymlinks: false
+                }
+            }
+        }
+
         stage('Deploy') { steps {
             echo 'Deploying....'
             script {
